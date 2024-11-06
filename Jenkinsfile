@@ -32,6 +32,7 @@ pipeline {
 
         stage('Dependency Check') {
             steps {
+                sh './gradlew dependencyCheckPurge'
                 sh './gradlew dependencyCheckAnalyze'
             }
         }
