@@ -48,11 +48,9 @@ jobs:
       - name: Success message
         if: success()
         run: echo "Build and deployment successful!"
-        shell: sh
         working-directory: ${{ github.workspace }}
 
       - name: Failure message
         if: failure()
         run: echo "Build or deployment failed."
-        shell: sh
         working-directory: ${{ github.workspace }}
