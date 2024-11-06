@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     tools {
-        jdk 'microsoft_jdk_21'
         gradle 'gradle'
     }
 
