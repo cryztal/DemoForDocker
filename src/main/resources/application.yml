@@ -1,4 +1,6 @@
 application:
   name: MyApp
   version: 1.0.0
-  description: This is a sample
+  description: This is a sample application for CI/CD with GitHub Actions and Jenkins.
+
+

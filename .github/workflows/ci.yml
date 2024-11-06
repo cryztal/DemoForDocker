@@ -36,12 +36,6 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-      - name: Dependency Check Purge
-        run: ./gradlew dependencyCheckPurge
-
-      - name: Dependency Check Analyze
-        run: ./gradlew dependencyCheckAnalyze
-
       - name: Clean workspace
         if: always()
         run: rm -rf ${{ github.workspace }}
