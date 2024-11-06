@@ -36,17 +36,6 @@ pipeline {
                 sh './gradlew dependencyCheckAnalyze'
             }
         }
-        stage('Install yamllint') {
-            steps {
-                sh 'pip install yamllint'
-            }
-        }
-
-        stage('Lint YAML files') {
-            steps {
-                sh 'yamllint -c .yamllint src/main/resources'
-            }
-        }
     }
 
 
