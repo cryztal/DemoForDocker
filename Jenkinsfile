@@ -39,18 +39,6 @@ pipeline {
                 sh './gradlew dependencyCheckAnalyze'
             }
         }
-
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
-            }
-        }
-
-        stage('Docker Push') {
-            steps {
-                sh 'docker push $DOCKER_IMAGE'
-            }
-        }
     }
 
     post {
