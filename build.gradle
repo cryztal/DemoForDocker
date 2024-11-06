@@ -17,6 +17,11 @@ dependencyCheck {
     format = 'HTML'
     outputDirectory = "${buildDir}/reports/dependency-check"
 }
+task lintYaml(type: Exec) {
+    description = 'Lint YAML files'
+    group = 'verification'
+    commandLine 'yamllint', '-c', '.yamllint', 'src/main/resources'
+}
 
 tasks.named('spotbugsMain') {
     reports {

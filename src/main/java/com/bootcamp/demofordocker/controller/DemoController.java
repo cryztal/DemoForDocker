@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping( "/api" )
 public class DemoController
 {
+
+    public static String longest = "Hello, World! Welcome to DevOps World with Docker and Kubernetes I need a long string to test the longest word in a string generate more than 100 characters";
     @GetMapping( "/hello" )
     public String sayHello()
     {
@@ -25,3 +27,5 @@ public class DemoController
         return "DEVOPS name is " + devopsValue;
     }
 }
+
+
