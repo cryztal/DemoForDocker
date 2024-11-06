@@ -5,10 +5,6 @@ pipeline {
         gradle 'gradle'
     }
 
-    environment {
-        DOCKER_IMAGE = 'cryztal134/spring-boot-demo:latest'
-    }
-
     stages {
         stage('Checkout') {
             steps {
