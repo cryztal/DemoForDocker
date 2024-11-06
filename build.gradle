@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.6'
-    //id 'com.github.spotbugs' version '5.0.13'
+    id 'com.github.spotbugs' version '5.0.13'
     id 'org.owasp.dependencycheck' version '8.2.1'
 }
 
@@ -20,8 +20,8 @@ dependencyCheck {
 
 tasks.named('spotbugsMain') {
     reports {
-        xml.required.set(false) // Disable XML report for SpotBugs
-        html.required.set(true)  // Enable HTML report for SpotBugs
+        xml.required.set(false)
+        html.required.set(true)
     }
 }
 
