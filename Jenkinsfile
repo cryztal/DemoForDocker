@@ -30,6 +30,12 @@ pipeline {
             }
         }
 
+        stage('Checkstyle') {
+            steps {
+                sh './gradlew checkstyleMain checkstyleTest'
+            }
+        }
+
         stage('Dependency Check') {
             steps {
                 sh './gradlew dependencyCheckPurge'
