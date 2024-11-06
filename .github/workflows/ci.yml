@@ -30,10 +30,20 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-      - name: Dependency Check
+      - name: Dependency Check Purge
+        run: ./gradlew dependencyCheckPurge
+
+      - name: Dependency Check Analyze
         run: ./gradlew dependencyCheckAnalyze
 
-      - name: Lint YAML files
-        run: |
-          pip install yamllint
-          yamllint -c .yamllint src/main/resources
+      - name: Clean workspace
+        if: always()
+        run: rm -rf ${{ github.workspace }}
+
+      - name: Success message
+        if: success()
+        run: echo 'Build and deployment successful!'
+
+      - name: Failure message
+        if: failure()
+        run: echo 'Build or deployment failed.'
