@@ -16,6 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Node.js (required for Super-Linter)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Ensure Node.js is set up
+
       - name: Lint YAML
         uses: github/super-linter@v4
         env:
@@ -42,14 +47,12 @@ jobs:
 
       - name: Success message
         if: success()
-        run: |
-          echo -e "\033[1;32mBuild and deployment successful!\033[0m"
+        run: echo "Build and deployment successful!"
         shell: sh
         working-directory: ${{ github.workspace }}
 
       - name: Failure message
         if: failure()
-        run: |
-          echo -e "\033[1;31mBuild or deployment failed.\033[0m"
+        run: echo "Build or deployment failed."
         shell: sh
         working-directory: ${{ github.workspace }}
