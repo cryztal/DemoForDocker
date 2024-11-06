@@ -6,11 +6,11 @@ plugins {
     id 'org.owasp.dependencycheck' version '8.2.1'
 }
 
-/*spotbugs {
+spotbugs {
     toolVersion = '4.7.3'
     effort = 'max'
     reportLevel = 'high'
-}*/
+}
 
 dependencyCheck {
     failBuildOnCVSS = 7.0
@@ -18,12 +18,12 @@ dependencyCheck {
     outputDirectory = "${buildDir}/reports/dependency-check"
 }
 
-/*tasks.named('spotbugsMain') {
+tasks.named('spotbugsMain') {
     reports {
         xml.required.set(false) // Disable XML report for SpotBugs
         html.required.set(true)  // Enable HTML report for SpotBugs
     }
-}*/
+}
 
 group = 'com.bootcamp'
 version = '0.0.1-SNAPSHOT'
