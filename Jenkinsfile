@@ -30,14 +30,19 @@ pipeline {
             }
         }
 
+        stage('Checkstyle') {
+            steps {
+                sh './gradlew checkstyleMain checkstyleTest'
+            }
+        }
+
         stage('Dependency Check') {
             steps {
+                sh './gradlew dependencyCheckPurge'
                 sh './gradlew dependencyCheckAnalyze'
             }
         }
     }
-
-
     post {
         always {
             cleanWs()

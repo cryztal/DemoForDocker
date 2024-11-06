@@ -2,7 +2,7 @@
 extends: default
 
 rules:
-  line-length: disable
+  line-length: 100
   new-lines:
     type: unix
   new-line-at-end-of-file:

@@ -2,13 +2,35 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.6'
-    id 'org.owasp.dependencycheck' version '8.2.1'
+    id 'com.github.spotbugs' version '5.0.13'
+    id 'org.owasp.dependencycheck' version '6.5.0.1'
+    id 'checkstyle'
+}
+
+spotbugs {
+    toolVersion = '4.7.3'
+    effort = 'max'
+    reportLevel = 'high'
+}
+
+checkstyle {
+    toolVersion = '10.3.1'
+    configFile = file('config/checkstyle/checkstyle.xml')
 }
 
 dependencyCheck {
     failBuildOnCVSS = 7.0
     format = 'HTML'
     outputDirectory = "${buildDir}/reports/dependency-check"
+}
+
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+        html.destination = file("${buildDir}/reports/checkstyle/checkstyle.html")
+    }
 }
 
 group = 'com.bootcamp'
@@ -25,9 +47,14 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.apache.commons:commons-collections4:4.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyCheck {
+    failBuildOnCVSS = 7
 }
 
 tasks.named('test') {
