@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        JAVA_HOME = 'C:\\Microsoft\\jdk-17.0.11.9-hotspot'
+        JAVA_HOME = 'C:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot'
         DOCKER_IMAGE = 'cryztal134/spring-boot-demo:latest'
     }
 
