@@ -1,0 +1,31 @@
+name: YAML Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+      - jenkins-failed
+
+jobs:
+  yaml_lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install yamllint
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllint
+
+      - name: Lint YAML Files
+        run: |
+          yamllint src/main/resources/application.yml
+        # Or run yamllint on all YAML files
+        # run: yamllint '**/*.yml'
