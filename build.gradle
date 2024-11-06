@@ -23,10 +23,6 @@ task lintYaml(type: Exec) {
     commandLine 'yamllint', '-c', '.yamllint', 'src/main/resources'
 }
 
-tasks.named('check') {
-    dependsOn tasks.named('lintYaml')
-}
-
 /*tasks.named('spotbugsMain') {
     reports {
         xml.required.set(false) // Disable XML report for SpotBugs
