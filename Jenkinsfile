@@ -7,6 +7,7 @@ pipeline {
     }
 
     environment {
+        JAVA_HOME = '/microsoft_jdk_21'
         DOCKER_IMAGE = 'cryztal134/spring-boot-demo:latest'
     }
 
