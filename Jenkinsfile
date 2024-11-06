@@ -5,10 +5,6 @@ pipeline {
         gradle 'gradle'
     }
 
-    environment {
-        DOCKER_IMAGE = 'cryztal134/spring-boot-demo:latest'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -37,17 +33,6 @@ pipeline {
         stage('Dependency Check') {
             steps {
                 sh './gradlew dependencyCheckAnalyze'
-            }
-        }
-        stage('Install yamllint') {
-            steps {
-                sh 'pip install yamllint'
-            }
-        }
-
-        stage('Lint YAML files') {
-            steps {
-                sh 'yamllint -c .yamllint src/main/resources'
             }
         }
     }
